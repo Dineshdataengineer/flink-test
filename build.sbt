@@ -8,8 +8,14 @@ version := "0.1-SNAPSHOT"
 scalaVersion := "2.11.12"
 
 val flinkVersion = "1.7.2"
-libraryDependencies += "org.apache.flink" %% "flink-scala" % flinkVersion % Test
-libraryDependencies += "org.apache.flink" %% "flink-streaming-scala" % flinkVersion % Test
+val hadoopVersion = "2.9.2"
+libraryDependencies += "org.apache.flink" %% "flink-scala" % flinkVersion
+libraryDependencies += "org.apache.flink" %% "flink-streaming-scala" % flinkVersion
+//libraryDependencies += "org.apache.flink" % "flink-hadoop-fs" % flinkVersion
+libraryDependencies += "org.apache.flink" % "flink-s3-fs-hadoop" % flinkVersion
+//libraryDependencies += "org.apache.hadoop" % "hadoop-common" % hadoopVersion
+
+// test
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.7" % Test
 libraryDependencies += "org.slf4j" % "slf4j-api" % "1.7.25" % Test
 libraryDependencies += "org.slf4j" % "slf4j-log4j12" % "1.7.25" % Test
