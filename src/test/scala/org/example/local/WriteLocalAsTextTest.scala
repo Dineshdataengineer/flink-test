@@ -1,8 +1,10 @@
-package org.example
+package org.example.local
 
 import org.apache.flink.api.scala._
+import org.apache.flink.core.fs.FileSystem
+import org.example.TestSpec
 
-class WordCountTest extends TestSpec {
+class WriteLocalAsTextTest extends TestSpec {
   it should "do a wordcount" in withDataSetEnv { env =>
 
     // source
@@ -19,7 +21,8 @@ class WordCountTest extends TestSpec {
         .sum(1)
       }
 
-    // execute the flow and print result
-    counts.print()
+
+    counts.writeAsText("/tmp/flink-write-as-text-test.txt", FileSystem.WriteMode.OVERWRITE)
+    env.execute("WordCount txt")
   }
 }

@@ -1,9 +1,9 @@
-package org.example
+package org.example.wordcount
 
 import org.apache.flink.api.scala._
-import org.apache.flink.core.fs.FileSystem
+import org.example.TestSpec
 
-class WriteLocalAsCsvTest extends TestSpec {
+class WordCountTest extends TestSpec {
   it should "do a wordcount" in withDataSetEnv { env =>
 
     // source
@@ -20,8 +20,7 @@ class WriteLocalAsCsvTest extends TestSpec {
         .sum(1)
       }
 
-
-    counts.writeAsCsv("/tmp/flink-write-as-text-test.csv", writeMode = FileSystem.WriteMode.OVERWRITE)
-    env.execute("WordCount csv")
+    // execute the flow and print result
+    counts.print()
   }
 }

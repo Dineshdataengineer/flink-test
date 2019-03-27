@@ -1,9 +1,10 @@
-package org.example
+package org.example.s3
 
 import org.apache.flink.api.scala._
 import org.apache.flink.core.fs.FileSystem
+import org.example.TestSpec
 
-class WriteLocalAsTextTest extends TestSpec {
+class WriteS3AsCsvTest extends TestSpec {
   it should "do a wordcount" in withDataSetEnv { env =>
 
     // source
@@ -21,7 +22,7 @@ class WriteLocalAsTextTest extends TestSpec {
       }
 
 
-    counts.writeAsText("/tmp/flink-write-as-text-test.txt", FileSystem.WriteMode.OVERWRITE)
-    env.execute("WordCount txt")
+    counts.writeAsCsv("s3://dnvriend-data/flink-write-as-text-test.csv", writeMode = FileSystem.WriteMode.OVERWRITE)
+    env.execute("WordCount s3 csv")
   }
 }

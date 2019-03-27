@@ -1,10 +1,11 @@
-package org.example
+package org.example.s3
 
 import org.apache.flink.api.scala._
 import org.apache.flink.core.fs.FileSystem
 import org.apache.flink.runtime.state.filesystem.FsStateBackend
 import org.apache.flink.streaming.api.scala.DataStream
 import org.apache.flink.streaming.api.windowing.time.Time
+import org.example.TestSpec
 
 class WriteS3AsCsvWithS3StateBackendTest extends TestSpec {
   it should "do a wordcount" in withDataStreamEnv { env =>

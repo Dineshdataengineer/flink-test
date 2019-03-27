@@ -147,3 +147,7 @@ Providers:
 - [Wikipedia - Apache FLink](https://en.wikipedia.org/wiki/Apache_Flink)
 - [Apache Flink Documentation](https://ci.apache.org/projects/flink/flink-docs-release-1.7/)
 - [Apache Flink - Scala API Extensions](https://ci.apache.org/projects/flink/flink-docs-stable/dev/scala_api_extensions.html)
+
+## Videos
+- [(Past), Present, and Future of Apache Flink](https://www.youtube.com/watch?v=cb5Val090cg)
+- [Robust Stream Processing with Apache Flink](https://www.youtube.com/watch?v=kyLtjuz5A0c)
